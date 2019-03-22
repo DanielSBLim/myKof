@@ -17,7 +17,7 @@ public class Main {
 						CharacterList.getMin()	,
 						CharacterList.getMoon() );
 		kofCtrl.start();
-		//wefwefwef한글이?
+		//wefwefwef한글이?wefefwef
 	}
 }
 
