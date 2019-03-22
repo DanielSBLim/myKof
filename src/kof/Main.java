@@ -13,5 +13,6 @@ public class Main {
 		kofCtrl.ready(CharacterList.getCan(), CharacterList.getCheTT(), CharacterList.getIori(), CharacterList.getKyo(),
 				CharacterList.getMin(), CharacterList.getMoon());
 		kofCtrl.start();
+	//test
 	}
 }
