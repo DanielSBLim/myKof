@@ -20,14 +20,13 @@ public class Player {
 
 	public void attack(Player attacker) {
 		int damage;
-		if(attacker.getCriAttackRate() <= new Random().nextInt(100)) {
+		if (attacker.getCriAttackRate() <= new Random().nextInt(100)) {
 			damage = attacker.getCriAttacDamage();
 			Log.println("크리발생");
-		}
-		else {
+		} else {
 			damage = attacker.getAttackDamage();
 		}
-		
+
 		if (damage == Character.INVALID) {
 			action.stop();
 			return;
@@ -57,21 +56,24 @@ public class Player {
 	private int getAttackDamage() {
 		return character.getAttackDamage();
 	}
+
 	private int getCriAttackRate() {
 		return character.getCriRate();
 	}
+
 	private int getCriAttacDamage() {
 		return character.getCriDamage();
 	}
-	
 
 	private boolean isBlocking() {
 		return new Random().nextBoolean();
 	}
-	
+
 	interface Action {
 		void counterattack(int tag);
+
 		void die(int tag);
+
 		void stop();
 	}
 }

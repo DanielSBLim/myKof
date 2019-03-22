@@ -11,24 +11,20 @@ public class KOFCtrl {
 
 	private static int PLAYER1 = 0;
 	private static int PLAYER2 = 1;
-	public int i,j = 0;
+	public int i, j = 0;
 
 	private int turn = 0;
 	private boolean isPlaying = false;
-	
+
 	private ArrayList<Player> player1 = new ArrayList<>();
 	private ArrayList<Player> player2 = new ArrayList<>();
-	
-	public void ready(	ICharacter character1,
-						ICharacter character2,
-						ICharacter character3,
-						ICharacter character4,
-						ICharacter character5,
-						ICharacter character6) {
-		
+
+	public void ready(ICharacter character1, ICharacter character2, ICharacter character3, ICharacter character4,
+			ICharacter character5, ICharacter character6) {
+
 		player1.add(new Player(PLAYER1, character1, action));
 		player1.add(new Player(PLAYER1, character3, action));
-		player1.add(new Player(PLAYER1, character5, action));		
+		player1.add(new Player(PLAYER1, character5, action));
 		player2.add(new Player(PLAYER2, character2, action));
 		player2.add(new Player(PLAYER2, character4, action));
 		player2.add(new Player(PLAYER2, character6, action));
@@ -69,12 +65,12 @@ public class KOFCtrl {
 		}
 		return isPlaying;
 	}
-	
+
 	private void stop() {
 		isPlaying = false;
 		checkPlaying();
 	}
-	
+
 	private Player.Action action = new Player.Action() {
 
 		@Override
@@ -98,18 +94,18 @@ public class KOFCtrl {
 
 			if (tag == PLAYER1) {
 				result(player2.get(j).getName(), player1.get(i).getName());
-				if(i<2) {
+				if (i < 2) {
 					i++;
 					counterattack(tag);
-					
+
 				}
 			} else if (tag == PLAYER2) {
 				result(player1.get(i).getName(), player2.get(j).getName());
-				if(j<2) {
+				if (j < 2) {
 					j++;
 					counterattack(tag);
-					}
-				
+				}
+
 			}
 		}
 

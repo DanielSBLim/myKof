@@ -8,7 +8,6 @@
 
 */
 
-
 package kof;
 
 public class State {
@@ -20,17 +19,16 @@ public class State {
 	private int criDamage;
 	private int energy;
 
-
-	public State(String name, int str, int dex, int hp,String skill1,String skill2,String skill3,String skill4,String LethalMax) {
+	public State(String name, int str, int dex, int hp, String skill1, String skill2, String skill3, String skill4,
+			String LethalMax) {
 		super();
 		this.name = name;
-		this.hp = hp*100;
-		this.criRate = (10 +(int)(dex *0.5));
-		this.criDamage = (int)(100 + dex);
-		this.minDamage = (int)((str*10)-((str*10)*0.1));
-		this.maxDamage = (int)((str*10)+((str*10)*0.1));
+		this.hp = hp * 100;
+		this.criRate = (10 + (int) (dex * 0.5));
+		this.criDamage = (int) (100 + dex);
+		this.minDamage = (int) ((str * 10) - ((str * 10) * 0.1));
+		this.maxDamage = (int) ((str * 10) + ((str * 10) * 0.1));
 	}
-
 
 	public String getName() {
 		return name;
@@ -47,12 +45,13 @@ public class State {
 	public int getMaxDamage() {
 		return maxDamage;
 	}
+
 	public int getCriRate() {
 		return criRate;
 	}
+
 	public int getCriDamage() {
 		return criDamage;
 	}
-	
 
 }
