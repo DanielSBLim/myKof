@@ -32,29 +32,30 @@ public class Character implements ICharacter {
 	private int minDamage(int str) {
 		return (int)((str*10)-((str*10)*0.1));
 	}
+	
 	private int criRate(int dex) {
 		return (10 +(int)(dex *0.5));
 	}
+	
 	private int CriDamage(int dex) {
 		return (int)(100 + dex);
 	}
+	
 	private int hp(int con) {
 		return con*100;
 	}
 	
-	
 	@Override
-	
 	public int getAttackDamage() {
 		return getDamageCalc(minDamage(state.getStr()),maxDamage(state.getStr()));
 	}
-	@Override
 	
+	@Override
 	public int getCriRate() {
 		return criRate(state.getDex());
 	}
+
 	@Override
-	
 	public int getCriDamage() {
 		return CriDamage(state.getDex());
 		
@@ -70,10 +71,4 @@ public class Character implements ICharacter {
 	public String getCharacterName() {
 		return state.getName();
 	}
-
-	@Override
-	public int getCon() {
-		return state.getCon();
-	}
-
 }
