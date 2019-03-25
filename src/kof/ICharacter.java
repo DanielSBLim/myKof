@@ -2,13 +2,10 @@ package kof;
 
 public interface ICharacter {
 	int getAttackDamage();
-
 	int getCriRate();
-
-	int getHp();
-
+	int getCon();
 	int getCriDamage();
-
+	int getHp();
+	
 	String getCharacterName();
-
 }

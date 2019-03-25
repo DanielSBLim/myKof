@@ -3,13 +3,17 @@ package kof;
 import java.util.Random;
 
 public class Player {
-	private int playerTag;
-	private ICharacter character;
-	private int hp;
-	private String name;
+	
 	private Action action;
-
+	private ICharacter character;
+	
+	private int hp;
+	private int playerTag;
+	
+	private String name;
+	
 	public Player(int playerTag, ICharacter character, Action action) {
+		
 		super();
 		this.playerTag = playerTag;
 		this.character = character;
@@ -20,23 +24,25 @@ public class Player {
 
 	public void attack(Player attacker) {
 		int damage;
-		if (attacker.getCriAttackRate() <= new Random().nextInt(100)) {
+		
+		if(attacker.getCriAttackRate() < new Random().nextInt(100)) {
 			damage = attacker.getCriAttacDamage();
 			Log.println("크리발생");
-		} else {
+		}else {
 			damage = attacker.getAttackDamage();
 		}
-
+		
 		if (damage == Character.INVALID) {
 			action.stop();
 			return;
 		}
-
 		Log.println(attacker.name + " 가 " + damage + " 으로 공격하였습니다.");
+		
 		if (isBlocking()) {
 			Log.println(name + "가 공격을 막았습니다.");
-		} else {
-			if (damage > 0) {
+		}else{
+			
+				if (damage > 0) {
 				hp -= damage;
 			}
 			Log.println(name + " 의 hp가  " + hp + " 가 되었습니다.");
@@ -44,7 +50,7 @@ public class Player {
 
 		if (hp < 0) {
 			action.die(playerTag);
-		} else {
+		}else{
 			action.counterattack(playerTag);
 		}
 	}
@@ -56,24 +62,21 @@ public class Player {
 	private int getAttackDamage() {
 		return character.getAttackDamage();
 	}
-
 	private int getCriAttackRate() {
 		return character.getCriRate();
 	}
-
 	private int getCriAttacDamage() {
 		return character.getCriDamage();
 	}
+	
 
 	private boolean isBlocking() {
 		return new Random().nextBoolean();
 	}
-
+	
 	interface Action {
 		void counterattack(int tag);
-
 		void die(int tag);
-
 		void stop();
 	}
 }
