@@ -17,13 +17,11 @@ public class KOFCtrl {
 	private int turn = 0;
 	private boolean isPlaying = false;
 
-	private ArrayList<Player> player1 = new ArrayList<>();
-	private ArrayList<Player> player2 = new ArrayList<>();
 
-	public void ready(ArrayList<Player> playerA, ArrayList<Player> playerB) {
 
-		this.player1 = playerA;
-		this.player2 = playerB;
+	public void ready(Player playerA, Player playerB) {
+
+		
 	}
 
 	public void start() {

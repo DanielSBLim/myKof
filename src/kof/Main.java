@@ -3,6 +3,7 @@
 */
 package kof;
 
+import java.util.ArrayList;
 
 public class Main {
 	
@@ -10,19 +11,18 @@ public class Main {
 	static int playerBTeam = 1;
 		
 	public static void main(String[] args) {
-		KOFCtrl kofCtrl = new KOFCtrl();
-		
-		//6명게임 으로 첫 A팀의 3명과 B의 후 3팀으로 나눈다.
+		ArrayList<ICharacter> playerATeam = new ArrayList<>();
+		ArrayList<ICharacter> playerBTeam = new ArrayList<>();
+			
+		playerATeam.add(CharacterList.getSira());
+		playerATeam.add(CharacterList.getCheTT());
+		playerATeam.add(CharacterList.getIori());
 
- 		Player	 playerA = new Player(playerATeam,CharacterList.getCan());
- 				 playerA.addCharacter(playerATeam,CharacterList.getCheTT());
- 				 playerA.addCharacter(playerATeam,CharacterList.getIori());
- 		
- 		Player	 playerB = new Player(playerBTeam,CharacterList.getKyo());
- 				 playerB.addCharacter(playerBTeam,CharacterList.getMin());
- 				 playerB.addCharacter(playerBTeam,CharacterList.getMoon());
+		playerBTeam.add(CharacterList.getKyo());
+		playerBTeam.add(CharacterList.getMin());
+		playerBTeam.add(CharacterList.getMoon());
 						
-		kofCtrl.ready(playerA.getPlayerTeam1(),playerB.getPlayerTeam2());
+		kofCtrl.ready(playerA, playerB);
 		kofCtrl.start();
 	}
 }
