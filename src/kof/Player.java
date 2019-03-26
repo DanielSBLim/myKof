@@ -8,49 +8,19 @@ public class Player {
 	private Action action;
 	private ICharacter character;
 
-	private static int PLAYER1 = 0;
-	private static int PLAYER2 = 1;
-
 	private int hp;
 	private int playerTag;
 
 	private String name;
 
-	ArrayList<Player> playerA = new ArrayList<>();
-	ArrayList<Player> playerB = new ArrayList<>();
 
-	public Player(final int playerTag, final ICharacter character, final Action action) {
+	public Player(int playerTag,  ArrayList<ICharacter> characterlist,  Action action) {
 		super();
 		this.playerTag = playerTag;
-		this.character = character;
+		this.character = characterlist.remove(0);
 		this.hp = character.getHp();
 		this.name = character.getCharacterName();
 		this.action = action;
-	}
-
-	public Player(int selcet,ICharacter character1) {
-		if (selcet == 0) {
-			playerA.add(new Player(PLAYER1, character1, action));
-		} else {
-			playerB.add(new Player(PLAYER2, character1, action));
-		}
-	}
-
-	public ArrayList<Player> getPlayerTeam1() {
-		return playerA;
-	}
-
-	public ArrayList<Player> getPlayerTeam2() {
-		return playerB;
-
-	}
-	
-	public void addCharacter (int selcet,ICharacter character1) {
-		if (selcet == 0) {
-			playerA.add(new Player(PLAYER1, character1, action));
-		} else {
-			playerB.add(new Player(PLAYER2, character1, action));
-		}
 	}
 
 	public void attack(final Player attacker) {

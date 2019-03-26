@@ -11,6 +11,8 @@ public class Main {
 	static int playerBTeam = 1;
 		
 	public static void main(String[] args) {
+		KOFCtrl kofCtrl = new KOFCtrl();
+		
 		ArrayList<ICharacter> playerATeam = new ArrayList<>();
 		ArrayList<ICharacter> playerBTeam = new ArrayList<>();
 			
@@ -22,7 +24,7 @@ public class Main {
 		playerBTeam.add(CharacterList.getMin());
 		playerBTeam.add(CharacterList.getMoon());
 						
-		kofCtrl.ready(playerA, playerB);
+		kofCtrl.ready(playerATeam, playerBTeam);
 		kofCtrl.start();
 	}
 }

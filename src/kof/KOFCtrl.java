@@ -7,24 +7,24 @@ package kof;
 import java.util.ArrayList;
 import java.util.Random;
 
-import kof.Player.Action;
-
 public class KOFCtrl {
 
 	private static int PLAYER1 = 0;
 	private static int PLAYER2 = 1;
-	public int i, j = 0;
+	
 	private int turn = 0;
+	
 	private boolean isPlaying = false;
-
-
-
-	public void ready(Player playerA, Player playerB) {
-
+	
+	private Player player1, player2;
+	
+	public void ready(ArrayList<ICharacter> playerA, ArrayList<ICharacter> playerB) {
+		player1 = new Player(PLAYER1, playerA, action);
+		player2 = new Player(PLAYER2, playerB, action);
 		
 	}
 
-	public void start() {
+	public  void start() {
 		if (player1 == null || player2 == null) {
 			Log.warning("캐릭터가 준비되지 않았습니다.");
 			return;
@@ -33,9 +33,9 @@ public class KOFCtrl {
 		isPlaying = true;
 
 		if (fitstAttack() == PLAYER1) {
-			attack(player1.get(i), player2.get(j));
+			attack(player1, player2);
 		} else {
-			attack(player2.get(j), player1.get(i));
+			attack(player2, player1);
 		}
 	}
 
@@ -74,9 +74,9 @@ public class KOFCtrl {
 			}
 
 			if (tag == PLAYER1) {
-				attack(player1.get(i), player2.get(j));
+				attack(player1, player2);
 			} else if (tag == PLAYER2) {
-				attack(player2.get(j), player1.get(i));
+				attack(player2, player1);
 			}
 		}
 
@@ -86,24 +86,20 @@ public class KOFCtrl {
 			if (!checkPlaying()) {
 				return;
 			}
-
 			if (tag == PLAYER1) {
-				result(player2.get(j).getName(), player1.get(i).getName());
-
-				if (i < 2) {
-					i++;
+				result(player2.getName(), player1.getName());
+				if() {
+					
 					counterattack(tag);
-
+					
 				}
-			}
-
-			else if (tag == PLAYER2) {
-				result(player1.get(i).getName(), player2.get(j).getName());
-
-				if (j < 2) {
-					j++;
+			} else if (tag == PLAYER2) {
+				result(player1.getName(), player2.getName());
+				if() {
+					
 					counterattack(tag);
-				}
+					}
+				
 			}
 		}
 
