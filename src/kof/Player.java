@@ -53,7 +53,7 @@ public class Player {
 
 		if (hp < 0) {
 			
-			if(characterlist.get(0).) {
+			if(characterlist.size() == 0) {
 				action.die(playerTag);
 			} else {
 				teamChange();
@@ -61,7 +61,6 @@ public class Player {
 			}
 				
 		} else {
-			System.out.println("오류 시작");
 			action.counterattack(playerTag);
 		}
 	}
