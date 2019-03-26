@@ -7,19 +7,21 @@ package kof;
 import java.util.ArrayList;
 import java.util.Random;
 
+import kof.Player.Action;
+
 public class KOFCtrl {
 
 	private static int PLAYER1 = 0;
 	private static int PLAYER2 = 1;
-	public int i,j = 0;
+	public int i, j = 0;
 	private int turn = 0;
 	private boolean isPlaying = false;
-	
+
 	private ArrayList<Player> player1 = new ArrayList<>();
 	private ArrayList<Player> player2 = new ArrayList<>();
-	
+
 	public void ready(ArrayList<Player> playerA, ArrayList<Player> playerB) {
-		
+
 		this.player1 = playerA;
 		this.player2 = playerB;
 	}
@@ -59,13 +61,13 @@ public class KOFCtrl {
 		}
 		return isPlaying;
 	}
-	
+
 	private void stop() {
 		isPlaying = false;
 		checkPlaying();
 	}
-	
-	public Action action = new Action() {
+
+	public Player.Action action = new Player.Action() {
 
 		@Override
 		public void counterattack(int tag) {
@@ -82,24 +84,28 @@ public class KOFCtrl {
 
 		@Override
 		public void die(int tag) {
+
 			if (!checkPlaying()) {
 				return;
 			}
 
 			if (tag == PLAYER1) {
 				result(player2.get(j).getName(), player1.get(i).getName());
-				if(i<2) {
+
+				if (i < 2) {
 					i++;
 					counterattack(tag);
-					
+
 				}
-			} else if (tag == PLAYER2) {
+			}
+
+			else if (tag == PLAYER2) {
 				result(player1.get(i).getName(), player2.get(j).getName());
-				if(j<2) {
+
+				if (j < 2) {
 					j++;
 					counterattack(tag);
-					}
-				
+				}
 			}
 		}
 
@@ -108,6 +114,5 @@ public class KOFCtrl {
 			KOFCtrl.this.stop();
 		}
 	};
-
 
 }
