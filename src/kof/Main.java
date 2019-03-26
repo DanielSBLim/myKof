@@ -17,6 +17,7 @@ public class Main {
  		Player	 playerA = new Player(playerATeam,CharacterList.getCan());
  				 playerA.addCharacter(playerATeam,CharacterList.getCheTT());
  				 playerA.addCharacter(playerATeam,CharacterList.getIori());
+ 		
  		Player	 playerB = new Player(playerBTeam,CharacterList.getKyo());
  				 playerB.addCharacter(playerBTeam,CharacterList.getMin());
  				 playerB.addCharacter(playerBTeam,CharacterList.getMoon());
