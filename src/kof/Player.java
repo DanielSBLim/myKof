@@ -5,8 +5,8 @@ import java.util.Random;
 
 public class Player {
 
-	private ICharacter character;
 	private Action action;
+	private ICharacter character;
 
 	private static int PLAYER1 = 0;
 	private static int PLAYER2 = 1;
@@ -28,16 +28,11 @@ public class Player {
 		this.action = action;
 	}
 
-	public Player(final int selcet, final ICharacter character1, final ICharacter character2,
-			final ICharacter character3) {
+	public Player(int selcet,ICharacter character1) {
 		if (selcet == 0) {
 			playerA.add(new Player(PLAYER1, character1, action));
-			playerA.add(new Player(PLAYER1, character2, action));
-			playerA.add(new Player(PLAYER1, character3, action));
 		} else {
 			playerB.add(new Player(PLAYER2, character1, action));
-			playerB.add(new Player(PLAYER2, character2, action));
-			playerB.add(new Player(PLAYER2, character3, action));
 		}
 	}
 
@@ -48,6 +43,14 @@ public class Player {
 	public ArrayList<Player> getPlayerTeam2() {
 		return playerB;
 
+	}
+	
+	public void addCharacter (int selcet,ICharacter character1) {
+		if (selcet == 0) {
+			playerA.add(new Player(PLAYER1, character1, action));
+		} else {
+			playerB.add(new Player(PLAYER2, character1, action));
+		}
 	}
 
 	public void attack(final Player attacker) {
