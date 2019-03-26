@@ -7,24 +7,26 @@ package kof;
 import java.util.ArrayList;
 import java.util.Random;
 
+import sun.security.util.Length;
+
 public class KOFCtrl {
 
 	private static int PLAYER1 = 0;
 	private static int PLAYER2 = 1;
-	
+
 	private int turn = 0;
-	
+
 	private boolean isPlaying = false;
-	
+
 	private Player player1, player2;
-	
+
 	public void ready(ArrayList<ICharacter> playerA, ArrayList<ICharacter> playerB) {
 		player1 = new Player(PLAYER1, playerA, action);
 		player2 = new Player(PLAYER2, playerB, action);
-		
+
 	}
 
-	public  void start() {
+	public void start() {
 		if (player1 == null || player2 == null) {
 			Log.warning("캐릭터가 준비되지 않았습니다.");
 			return;
@@ -86,20 +88,21 @@ public class KOFCtrl {
 			if (!checkPlaying()) {
 				return;
 			}
+
 			if (tag == PLAYER1) {
 				result(player2.getName(), player1.getName());
-				if() {
-					
-					counterattack(tag);
-					
-				}
+				counterattack(tag);
+
 			} else if (tag == PLAYER2) {
 				result(player1.getName(), player2.getName());
-				if() {
+				if(player1.characterlist.get(0) == null ) {
 					
-					counterattack(tag);
-					}
-				
+				}
+				else {
+				player1.character= player1.characterlist.remove(0);
+					
+				}
+
 			}
 		}
 

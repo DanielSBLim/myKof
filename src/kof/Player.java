@@ -13,10 +13,12 @@ public class Player {
 
 	private String name;
 
+	ArrayList<ICharacter> characterlist;
 
 	public Player(int playerTag,  ArrayList<ICharacter> characterlist,  Action action) {
 		super();
 		this.playerTag = playerTag;
+		this.characterlist = characterlist;
 		this.character = characterlist.remove(0);
 		this.hp = character.getHp();
 		this.name = character.getCharacterName();
