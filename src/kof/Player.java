@@ -1,8 +1,9 @@
 package kof;
 
+
 import java.util.Random;
 
-public class Player {
+public class Player extends PlayerListA{
 	
 	private Action action;
 	private ICharacter character;
@@ -13,7 +14,6 @@ public class Player {
 	private String name;
 	
 	public Player(int playerTag, ICharacter character, Action action) {
-		
 		super();
 		this.playerTag = playerTag;
 		this.character = character;
@@ -21,6 +21,7 @@ public class Player {
 		this.name = character.getCharacterName();
 		this.action = action;
 	}
+	
 
 	public void attack(Player attacker) {
 		int damage;
@@ -51,6 +52,7 @@ public class Player {
 		if (hp < 0) {
 			action.die(playerTag);
 		}else{
+			System.out.println("오류 시작");
 			action.counterattack(playerTag);
 		}
 	}
@@ -68,15 +70,14 @@ public class Player {
 	private int getCriAttacDamage() {
 		return character.getCriDamage();
 	}
-	
+		
 
 	private boolean isBlocking() {
 		return new Random().nextBoolean();
 	}
 	
-	interface Action {
-		void counterattack(int tag);
-		void die(int tag);
-		void stop();
-	}
+
+
+	
+
 }

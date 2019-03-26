@@ -16,7 +16,7 @@ public class State {
 	private int con;
 	private int str;
 	private int dex;
-	private int energy;
+//	private int energy;
 
 	
 	public State(String name, int str, int dex, int con,String skill1,String skill2,String skill3,String skill4,String LethalMax) {

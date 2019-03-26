@@ -12,26 +12,16 @@ public class KOFCtrl {
 	private static int PLAYER1 = 0;
 	private static int PLAYER2 = 1;
 	public int i,j = 0;
-
 	private int turn = 0;
 	private boolean isPlaying = false;
 	
 	private ArrayList<Player> player1 = new ArrayList<>();
 	private ArrayList<Player> player2 = new ArrayList<>();
 	
-	public void ready(	ICharacter character1,
-						ICharacter character2,
-						ICharacter character3,
-						ICharacter character4,
-						ICharacter character5,
-						ICharacter character6) {
+	public void ready(ArrayList<Player> playerA, ArrayList<Player> playerB) {
 		
-		player1.add(new Player(PLAYER1, character1, action));
-		player1.add(new Player(PLAYER1, character3, action));
-		player1.add(new Player(PLAYER1, character5, action));		
-		player2.add(new Player(PLAYER2, character2, action));
-		player2.add(new Player(PLAYER2, character4, action));
-		player2.add(new Player(PLAYER2, character6, action));
+		this.player1 = playerA;
+		this.player2 = playerB;
 	}
 
 	public void start() {
@@ -75,7 +65,7 @@ public class KOFCtrl {
 		checkPlaying();
 	}
 	
-	private Player.Action action = new Player.Action() {
+	public Action action = new Action() {
 
 		@Override
 		public void counterattack(int tag) {
@@ -118,4 +108,6 @@ public class KOFCtrl {
 			KOFCtrl.this.stop();
 		}
 	};
+
+
 }
