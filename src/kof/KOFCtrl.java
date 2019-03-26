@@ -67,7 +67,7 @@ public class KOFCtrl {
 		checkPlaying();
 	}
 
-	private Player.Action action = new Player.Action() {
+	public Player.Action action = new Player.Action() {
 
 		@Override
 		public void counterattack(int tag) {
