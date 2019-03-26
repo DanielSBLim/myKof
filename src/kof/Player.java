@@ -52,11 +52,24 @@ public class Player {
 		}
 
 		if (hp < 0) {
-			action.die(playerTag);
+			
+			if(characterlist.get(0).) {
+				action.die(playerTag);
+			} else {
+				teamChange();
+				action.counterattack(playerTag);
+			}
+				
 		} else {
 			System.out.println("오류 시작");
 			action.counterattack(playerTag);
 		}
+	}
+	
+	public void teamChange () {
+			this.character = characterlist.remove(0);
+			this.hp = character.getHp();
+			this.name = character.getCharacterName();
 	}
 
 	public String getName() {

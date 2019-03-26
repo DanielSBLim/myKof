@@ -7,8 +7,6 @@ package kof;
 import java.util.ArrayList;
 import java.util.Random;
 
-import sun.security.util.Length;
-
 public class KOFCtrl {
 
 	private static int PLAYER1 = 0;
@@ -95,14 +93,6 @@ public class KOFCtrl {
 
 			} else if (tag == PLAYER2) {
 				result(player1.getName(), player2.getName());
-				if(player1.characterlist.get(0) == null ) {
-					
-				}
-				else {
-				player1.character= player1.characterlist.remove(0);
-					
-				}
-
 			}
 		}
 
