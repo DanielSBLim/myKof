@@ -71,4 +71,29 @@ public class Character implements ICharacter {
 	public String getCharacterName() {
 		return state.getName();
 	}
+	
+	@Override
+	public String getSkill1() {
+		return state.getStateSkill1();
+	}
+	
+	@Override
+	public String getSkill2() {
+		return state.getStateSkill2();
+	}
+	
+	@Override
+	public String getSkill3() {
+		return state.getStateSkill3();
+	}
+	
+	@Override
+	public String getSkill4() {
+		return state.getStateSkill4();
+	}
+	
+	@Override
+	public String getLethalMax() {
+		return state.getStateLethalMax();
+	}
 }
