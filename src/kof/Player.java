@@ -119,8 +119,6 @@ public class Player {
 	}
 
 	public void energyCharge(Player attack, int selct) {
-		if (attack.playerTag == 0) {
-
 			if (selct == 0) {
 				energyA += 5;
 			}
@@ -137,9 +135,8 @@ public class Player {
 				energyA += 20;
 			}
 
-		}
-
 	}
+	
 
 	public String getName() {
 		return name;
