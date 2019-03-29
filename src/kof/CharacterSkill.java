@@ -131,14 +131,14 @@ public class CharacterSkill{
 			case 1:
 				return "Iori Skill 1";
 			case 2:
-				return "Iori Skill  2";
+				return "Iori Skill 2";
 			case 3:
-				return "Iori Skill  3";
+				return "Iori Skill 3";
 			case 4:
-				return "Iori Skill  4";
+				return "Iori Skill 4";
 			
 			case 5:
-				return "Iori lethal  Max";
+				return "Iori lethal Max";
 			default:
 				
 			}
@@ -156,7 +156,7 @@ public class CharacterSkill{
 				return "Mystery Skill 4";
 			
 			case 5:
-				return "Mystery lethal  Max";
+				return "Mystery lethal Max";
 			default:
 				
 			}
@@ -174,7 +174,7 @@ public class CharacterSkill{
 				return "Min Skill 3";
 			
 			case 5:
-				return "Min lethal  Max";
+				return "Min lethal Max";
 			default:
 				
 			}

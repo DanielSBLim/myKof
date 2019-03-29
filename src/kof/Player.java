@@ -8,7 +8,7 @@ public class Player {
 	private Action action;
 	private ICharacter character;
 
-	private int hp;
+	private int hp, maxHp;
 	private int playerTag;
 	private int skillRate;
 	private int energyA = 0;
@@ -27,14 +27,13 @@ public class Player {
 
 	public void attack(final Player attacker) {
 		int damage;
-
+		String skillName = "";
 		// 초필살기인가? 아닌가?
 		if (attacker.energyA == 100) {
 			Log.println(attacker.getLethalMax());
 			attacker.energyA = 0;
 			damage = (int) (attacker.getAttackDamage() * 2.8);
 		} else {
-
 			// 평타인가 기술인가
 			if (70 > new Random().nextInt(100)) {
 				energyCharge(attacker, 0);
@@ -56,19 +55,19 @@ public class Player {
 				// 기술 1 발동 조건
 				if (50 > skillRate) {
 					energyCharge(attacker, 1);
-					Log.println(attacker.getSkill1());
+					skillName = attacker.getSkill1();
 					damage = (int) (attacker.getAttackDamage() * 1.2);
 
 					// 기술 2 발동
 				} else if (80 > skillRate) {
 					energyCharge(attacker, 2);
-					Log.println(attacker.getSkill2());
+					skillName = attacker.getSkill2();
 					damage = (int) (attacker.getAttackDamage() * 1.4);
 
 					// 기술 3 발동
 				} else {
 					energyCharge(attacker, 3);
-					Log.println(attacker.getSkill3());
+					skillName = attacker.getSkill3();
 					damage = (int) (attacker.getAttackDamage() * 1.6);
 
 				}
@@ -80,7 +79,7 @@ public class Player {
 			action.stop();
 			return;
 		}
-		Log.println(attacker.name + " 가 " + damage + " 으로 공격하였습니다.");
+		Log.println(attacker.name + " 가 "+ (skillName.isEmpty() ? "" : skillName + " 으로 ")  + damage + " 으로 공격하였습니다.");
 
 		if (isBlocking()) {
 			Log.println(name + "가 공격을 막았습니다.");
@@ -91,6 +90,8 @@ public class Player {
 			}
 			Log.println(name + " 의 hp가  " + hp + " 가 되었습니다.");
 		}
+		
+		action.printHp(this, attacker);
 
 		if (hp < 0) {
 
@@ -114,6 +115,7 @@ public class Player {
 	private void nextCharater() {
 		this.character = characterlist.remove(0);
 		this.hp = character.getHp();
+		this.maxHp = hp;
 		this.name = character.getCharacterName();
 		
 	}
@@ -136,8 +138,15 @@ public class Player {
 			}
 
 	}
-	
 
+	public int getTag() {
+		return playerTag;
+	}
+
+	public int getHpp() {
+		return (int)((float)hp / (float)maxHp * (float)100);
+	}
+	
 	public String getName() {
 		return name;
 	}
@@ -181,5 +190,7 @@ public class Player {
 		void die(int tag);
 
 		void stop();
+		
+		void printHp(Player attacker, Player diffender);
 	}
 }

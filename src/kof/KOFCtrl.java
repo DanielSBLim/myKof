@@ -99,6 +99,30 @@ public class KOFCtrl {
 		public void stop() {
 			KOFCtrl.this.stop();
 		}
+
+		@Override
+		public void printHp(Player attacker, Player diffender) {
+			Player player1, player2;
+			String player1HpBar = "";
+			String player2HpBar = "";
+			
+			if(attacker.getTag() == PLAYER1) {
+				player1 = attacker;
+				player2 = diffender;
+			}else {
+				player1 = diffender;
+				player2 = attacker;
+			}
+			
+			for(int i = 10, hpp = (int) (player1.getHpp()/10f); i > 0; i--) {
+				player1HpBar += i > hpp ? "□" : "■";   
+			}
+			
+			for(int i = 0, hpp = (int) (player2.getHpp()/10f); i < 10; i++) {
+				player2HpBar += i > hpp ? "□" : "■";
+			}
+			Log.print(String.format("%s %s vs %s %s",player1.getName(), player1HpBar, player2HpBar,player2.getName()));
+		}
 	};
 
 }
