@@ -11,7 +11,7 @@ public class Player {
 	private int hp;
 	private int playerTag;
 	private int skillRate;
-	private int energyA = 0;
+	private int energy = 50;
 
 	private String name;
 
@@ -29,9 +29,9 @@ public class Player {
 		int damage;
 
 		// 초필살기인가? 아닌가?
-		if (attacker.energyA == 100) {
+		if (attacker.energy >= 100) {
 			Log.println(attacker.getLethalMax());
-			attacker.energyA = 0;
+			attacker.energy = 0;
 			damage = (int) (attacker.getAttackDamage() * 2.8);
 		} else {
 
@@ -118,21 +118,21 @@ public class Player {
 		
 	}
 
-	public void energyCharge(Player attack, int selct) {
+	private void energyCharge(Player attack, int selct) {
 			if (selct == 0) {
-				energyA += 5;
+				energy += 5;
 			}
 
 			if (selct == 1) {
-				energyA += 10;
+				energy += 10;
 			}
 
 			if (selct == 2) {
-				energyA += 15;
+				energy += 15;
 			}
 
 			if (selct == 3) {
-				energyA += 20;
+				energy += 20;
 			}
 
 	}
