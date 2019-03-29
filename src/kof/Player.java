@@ -47,7 +47,7 @@ public class Player {
 				energyCharge(attacker, 0);
 
 				// 크리인가 아닌가?
-				if (attacker.getCriAttackRate() < new Random().nextInt(100)) {
+				if (attacker.getCriAttackRate() > new Random().nextInt(100)) {
 					damage = (int) (attacker.getCriAttacDamage() * 0.01) * attacker.getAttackDamage();
 					Log.println("크리발생");
 				} else {
