@@ -31,6 +31,7 @@ public class Player {
 		// 초필살기인가? 아닌가?
 		if (attacker.energy >= 100) {
 			Log.println(attacker.getLethalMax());
+			skillName = "@@@@초필살기시전@@@@ " + attacker.getLethalMax();
 			attacker.energy = 0;
 			damage = (int) (attacker.getAttackDamage() * 2.8);
 		} else {
