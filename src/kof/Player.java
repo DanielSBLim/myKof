@@ -152,6 +152,10 @@ public class Player {
 		return name;
 	}
 
+	public int getCharacterCount() {
+		return characterlist.size() + 1;
+	}
+	
 	public String getSkill1() {
 		return character.getSkill1();
 	}

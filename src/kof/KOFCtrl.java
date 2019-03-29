@@ -121,7 +121,9 @@ public class KOFCtrl {
 			for(int i = 0, hpp = (int) (player2.getHpp()/10f); i < 10; i++) {
 				player2HpBar += i > hpp ? "□" : "■";
 			}
-			Log.print(String.format("%s %s vs %s %s",player1.getName(), player1HpBar, player2HpBar,player2.getName()));
+			Log.print(String.format("%s %s%s vs %s%s %s",
+					player1.getName(), player1HpBar, "x" + player1.getCharacterCount(),
+					player2HpBar,"x" +player2.getCharacterCount(), player2.getName()));
 		}
 	};
 
