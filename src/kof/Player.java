@@ -12,7 +12,6 @@ public class Player {
 	private int playerTag;
 	private int skillRate;
 	private int energyA = 0;
-	private int energyB = 0;
 
 	private String name;
 
@@ -22,23 +21,17 @@ public class Player {
 		super();
 		this.playerTag = playerTag;
 		this.characterlist = characterlist;
-		this.character = characterlist.remove(0);
-		this.hp = character.getHp();
-		this.name = character.getCharacterName();
 		this.action = action;
+		nextCharater();
 	}
 
 	public void attack(final Player attacker) {
 		int damage;
 
 		// 초필살기인가? 아닌가?
-		if (attacker.playerTag == 0 && energyA == 100) {
+		if (attacker.energyA == 100) {
 			Log.println(attacker.getLethalMax());
-			energyA = 0;
-			damage = (int) (attacker.getAttackDamage() * 2.8);
-		} else if (attacker.playerTag == 1 && energyB == 100) {
-			Log.println(attacker.getLethalMax());
-			energyB = 0;
+			attacker.energyA = 0;
 			damage = (int) (attacker.getAttackDamage() * 2.8);
 		} else {
 
@@ -106,9 +99,9 @@ public class Player {
 
 			} else {
 				action.die(playerTag);
-				this.character = characterlist.remove(0);
-				this.hp = character.getHp();
-				this.name = character.getCharacterName();
+				
+				//nextCharacter
+				nextCharater();
 				action.counterattack(playerTag);
 			}
 
@@ -118,6 +111,12 @@ public class Player {
 	}
 
 
+	private void nextCharater() {
+		this.character = characterlist.remove(0);
+		this.hp = character.getHp();
+		this.name = character.getCharacterName();
+		
+	}
 
 	public void energyCharge(Player attack, int selct) {
 		if (attack.playerTag == 0) {
