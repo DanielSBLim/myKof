@@ -137,23 +137,6 @@ public class Player {
 				energyA += 20;
 			}
 
-		} else {
-
-			if (selct == 0) {
-				energyB += 5;
-			}
-
-			if (selct == 1) {
-				energyB += 10;
-			}
-
-			if (selct == 2) {
-				energyB += 15;
-			}
-
-			if (selct == 3) {
-				energyB += 20;
-			}
 		}
 
 	}
