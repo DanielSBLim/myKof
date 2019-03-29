@@ -101,7 +101,7 @@ public class Player {
 
 		if (hp < 0) {
 
-			if (characterlist.size() == 0) {
+			if (characterlist.isEmpty()) {
 				action.die(playerTag);
 
 			} else {
