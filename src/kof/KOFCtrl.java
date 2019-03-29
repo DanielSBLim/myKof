@@ -89,7 +89,6 @@ public class KOFCtrl {
 
 			if (tag == PLAYER1) {
 				result(player2.getName(), player1.getName());
-				counterattack(tag);
 
 			} else if (tag == PLAYER2) {
 				result(player1.getName(), player2.getName());

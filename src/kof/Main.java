@@ -16,7 +16,7 @@ public class Main {
 		ArrayList<ICharacter> playerATeam = new ArrayList<>();
 		ArrayList<ICharacter> playerBTeam = new ArrayList<>();
 			
-		playerATeam.add(CharacterList.getSira());
+		playerATeam.add(CharacterList.getMystery());
 		playerATeam.add(CharacterList.getCheTT());
 		playerATeam.add(CharacterList.getIori());
 
